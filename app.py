@@ -1,5 +1,7 @@
 from flask import Flask
 from fastai.vision.all import load_learner
+from utils import is_fluffy
+import timm
 
 app = Flask(__name__)
 
