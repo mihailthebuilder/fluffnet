@@ -1,0 +1,1 @@
+def is_fluffy(x): return x[0].islower()
