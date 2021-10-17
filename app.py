@@ -19,9 +19,9 @@ cors = CORS(app, resources={r"/": {"origins": origins}})
 
 def main():
 
-    file = request.files
+    files = request.files
 
-    if "file" in file:
+    if "file" in files:
         file = request.files["file"]
 
         learn = load_learner("./fluffy-model.pkl")
