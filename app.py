@@ -8,10 +8,10 @@ import os
 app = Flask(__name__)
 
 # check if running on local
-_is_local = os.environ.get("localenv", default="false")
+_is_local = os.environ.get("FLASK_ENV", default="production")
 
 # only allow specific origins for API requests
-origins = "http://localhost:3000*" if _is_local else ""
+origins = "http://localhost:3000" if _is_local == "development" else ""
 cors = CORS(app, resources={r"/": {"origins": origins}})
 
 # allow get requests only
@@ -20,7 +20,6 @@ cors = CORS(app, resources={r"/": {"origins": origins}})
 def main():
 
     file = request.files
-
 
     if "file" in file:
         file = request.files["file"]
