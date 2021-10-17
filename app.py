@@ -1,14 +1,18 @@
-# TODO: added localenv=true, set it for others
-
 from flask import Flask
 from fastai.vision.all import load_learner
 from utils import is_fluffy
 import timm
 from flask_cors import CORS
+import os
 
 app = Flask(__name__)
 
-cors = CORS(app, resources={r"/": {"origins": "*"}})
+# check if running on local
+_is_local = os.environ.get("localenv", default="false")
+
+origins = "http://localhost:3000*" if _is_local else ""
+
+cors = CORS(app, resources={r"/": {"origins": origins}})
 
 @app.route("/")
 
