@@ -1,4 +1,4 @@
-from flask import Flask
+from flask import Flask, request
 from fastai.vision.all import load_learner
 from utils import is_fluffy
 import timm
@@ -18,10 +18,20 @@ cors = CORS(app, resources={r"/": {"origins": origins}})
 @app.route("/")
 
 def main():
-    learn = load_learner("./fluffy-model.pkl")
-    
-    fluffy,_,probs = learn.predict("./test-img.jpeg")
 
-    output = f"Is this fluffy?: {fluffy}. Probability it's fluffy: {probs[1].item():.6f}"
+    file = request.files
 
-    return output
+
+    if "file" in file:
+        file = request.files["file"]
+
+        learn = load_learner("./fluffy-model.pkl")
+        
+        fluffy,_,probs = learn.predict("./test-img.jpeg")
+
+        output = f"Is this fluffy?: {fluffy}. Probability it's fluffy: {probs[1].item():.6f}"
+
+        return output
+
+    else:
+        return "No data sent through"
