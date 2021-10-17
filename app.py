@@ -10,10 +10,11 @@ app = Flask(__name__)
 # check if running on local
 _is_local = os.environ.get("localenv", default="false")
 
+# only allow specific origins for API requests
 origins = "http://localhost:3000*" if _is_local else ""
-
 cors = CORS(app, resources={r"/": {"origins": origins}})
 
+# allow get requests only
 @app.route("/")
 
 def main():
