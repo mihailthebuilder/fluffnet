@@ -3,7 +3,6 @@
 ## Todos
 
 - check whether file sent is image in the right format
-- check if cors working properly - right now might still be taking everything
 
 ## Keep in mind
 
