@@ -1,9 +1,14 @@
+# TODO: added localenv=true, set it for others
+
 from flask import Flask
 from fastai.vision.all import load_learner
 from utils import is_fluffy
 import timm
+from flask_cors import CORS
 
 app = Flask(__name__)
+
+cors = CORS(app, resources={r"/": {"origins": "*"}})
 
 @app.route("/")
 
