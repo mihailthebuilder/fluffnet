@@ -15,14 +15,16 @@ origins = "http://localhost:3000" if _is_local == "development" else ""
 cors = CORS(app, resources={r"/": {"origins": origins}})
 
 # allow get requests only
-@app.route("/")
+@app.route("/",methods=["POST"])
 
 def main():
 
     files = request.files
 
-    if "file" in files:
-        file = request.files["file"]
+    print(files)
+
+    if "image" in files:
+        file = request.files["image"]
 
         learn = load_learner("./fluffy-model.pkl")
         
