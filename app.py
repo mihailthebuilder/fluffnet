@@ -1,5 +1,5 @@
 from flask import Flask, request
-from fastai.vision.all import load_learner, load_image, PILImage
+from fastai.vision.all import load_learner, PILImage
 from utils import is_fluffy
 import timm
 from flask_cors import CORS
