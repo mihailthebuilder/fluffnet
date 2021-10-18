@@ -1,5 +1,6 @@
 from flask import Flask, request
-from fastai.vision.all import load_learner
+from fastai.vision.all import load_learner, load_image
+# from fastai.vision.image import open_image
 from utils import is_fluffy
 import timm
 from flask_cors import CORS
@@ -21,12 +22,14 @@ def main():
 
     files = request.files
 
-    print(files)
-
     if "image" in files:
-        file = request.files["image"]
+        image = request.files["image"]
 
         learn = load_learner("./fluffy-model.pkl")
+
+        image_processed = load_image(image)
+
+        print(image_processed)
         
         fluffy,_,probs = learn.predict("./test-img.jpeg")
 
