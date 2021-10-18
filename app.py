@@ -21,6 +21,8 @@ def main():
 
     files = request.files
 
+    output = {}
+
     if "image" in files:
         image = request.files["image"]
 
@@ -30,9 +32,7 @@ def main():
         
         fluffy,_,probs = learn.predict(image_processed)
 
-        output = f"Is this fluffy?: {fluffy}. Probability it's fluffy: {probs[1].item():.6f}"
+        output["fluffy"] = fluffy
+        output["prob"] = probs[1].item()
 
-        return output
-
-    else:
-        return "No data sent through"
+    return output
