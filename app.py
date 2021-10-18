@@ -1,5 +1,5 @@
 from flask import Flask, request
-from fastai.vision.all import load_learner, load_image
+from fastai.vision.all import load_learner, load_image, PILImage
 # from fastai.vision.image import open_image
 from utils import is_fluffy
 import timm
@@ -27,11 +27,9 @@ def main():
 
         learn = load_learner("./fluffy-model.pkl")
 
-        image_processed = load_image(image)
-
-        print(image_processed)
+        image_processed = PILImage.create(image)
         
-        fluffy,_,probs = learn.predict("./test-img.jpeg")
+        fluffy,_,probs = learn.predict(image_processed)
 
         output = f"Is this fluffy?: {fluffy}. Probability it's fluffy: {probs[1].item():.6f}"
 
