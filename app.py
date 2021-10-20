@@ -11,7 +11,7 @@ app = Flask(__name__)
 _is_local = os.environ.get("FLASK_ENV", default="production")
 
 # only allow specific origins for API requests
-origins = "http://localhost:3000" if _is_local == "development" else ""
+origins = "http://localhost:3000" if _is_local == "development" else "https://mihailthebuilder.github.io/fluffnet-front"
 cors = CORS(app, resources={r"/": {"origins": origins}})
 
 # allow get requests only
