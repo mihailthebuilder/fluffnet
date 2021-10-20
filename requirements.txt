@@ -1,3 +1,6 @@
+-f https://download.pytorch.org/whl/torch_stable.html
+torch==1.9.1+cpu 
+torchvision==0.10.1+cpu
 blis==0.7.4
 catalogue==2.0.6
 certifi==2021.10.8
@@ -42,8 +45,6 @@ srsly==2.4.1
 thinc==8.0.10
 threadpoolctl==3.0.0
 timm==0.4.12
-torch==1.9.1+cpu
-torchvision==0.10.1+cpu
 tqdm==4.62.3
 typer==0.4.0
 typing-extensions==3.10.0.2
