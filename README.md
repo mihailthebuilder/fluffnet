@@ -1,10 +1,24 @@
 # Fluffnet
 
-## Todos
+## Intro
 
-- check whether file sent is image in the right format
+Flask API that uses a computer vision model to tell whether an image has something fluffy in it. Go to...
 
-## Keep in mind
+- [here](https://mihailthebuilder.github.io/fluffnet-front/) for the live site
+- [here](https://github.com/mihailthebuilder/fluffy-nb) to see how the model was built
+- [here](https://github.com/mihailthebuilder/fluffnet-front) for info and source code on the frontend that uses this API
+
+## Table of contents
+
+- [Fluffnet](#fluffnet)
+  - [Intro](#intro)
+  - [Table of contents](#table-of-contents)
+  - [Architecture](#architecture)
+  - [Running locally](#running-locally)
+
+## Architecture
+
+## Running locally
 
 Run this command before running locally:
 
