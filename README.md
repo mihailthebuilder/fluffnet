@@ -18,12 +18,30 @@ Flask API that uses a computer vision model to tell whether an image has somethi
 
 ## Architecture
 
+The API is a simple Flask project with a single entry point. 
+
 ## Running locally
 
-Run this command before running locally:
+Set up the [frontend](https://github.com/mihailthebuilder/fluffnet-front) and run it locally.
+
+Set up the Python environment.
+
+```bash
+python -m venv venv
+source venv/bin/activate
+pip install -r requirements.txt
+```
+
+Run this command:
 
 ```bash
 export FLASK_ENV=development
 ```
 
 It enables [debug mode](https://flask.palletsprojects.com/en/2.0.x/quickstart/#debug-mode) with hot reload feature, and it enables CORS to localhost.
+
+Start the app:
+
+```bash
+flask run
+```
