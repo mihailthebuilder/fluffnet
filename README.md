@@ -18,7 +18,14 @@ Flask API that uses a computer vision model to tell whether an image has somethi
 
 ## Architecture
 
-The API is a simple Flask project with a single entry point. 
+The API is a simple Flask project with a single entry point. It takes an image as an input, and predicts to whether it has something fluffy with a confidence %. The prediction is based on a computer vision model that is stored in the `fluffy-model.pkl` file.
+
+The app is only used by a single [React frontend](https://mihailthebuilder.github.io/fluffnet-front/) and hosted on a free Heroku service.
+
+I've set up CORS such that it can only be accessed from 2 origins:
+
+- `localhost` if run locally
+- `mihailthebuilder.github.io`, which is the base URL for all the frontends I host with GitHub Pages
 
 ## Running locally
 
